@@ -16,7 +16,7 @@ X_size = 10
 Y_size = 10
 
 env = simple_gym.TwoDimArrayMap(X_size, Y_size, 4)
-env = env.SimpleAntMazation()
+env.SimpleAntMazation()
 
 # Q Table reset
 Q = np.zeros([env.observation_space_dim, env.action_space_dim])

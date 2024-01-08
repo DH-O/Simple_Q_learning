@@ -27,7 +27,6 @@ class TwoDimArrayMap:
                     if j < self.col * (2/3):
                         self.maze[i][j] = 1
                         self.reward_states[i][j] = -9
-        return self
     
     def reset(self):
         self.state = 0
