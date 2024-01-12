@@ -24,7 +24,7 @@ V = np.zeros(env.observation_space_dim)
 
 for episode in range(num_episodes):
     state = env.reset()
-    rAll = 0
+    total_reward = 0
     done = False
     episode_length = 0
     while not done:
@@ -35,10 +35,10 @@ for episode in range(num_episodes):
         Q[state, action] = Q[state, action] + alpha * (reward + discount * np.max(Q[new_state, :]) - Q[state, action])
         V[state] = np.max(Q[state, :])
         
-        rAll += reward
+        total_reward += reward
         state = new_state
         episode_length += 1
-    reward_list.append(rAll)    # It should be just "1"
+    reward_list.append(total_reward)    # It should be just "1"
     episode_length_list.append(episode_length)
 
 OneLineToCell_V = utils.OneLineToCell(X_size, Y_size)
